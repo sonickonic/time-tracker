@@ -16,7 +16,7 @@ defmodule ComerierWeb.Router do
   scope "/", ComerierWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", TimeEntryController, :index
   end
 
   # Other scopes may use custom stacks.

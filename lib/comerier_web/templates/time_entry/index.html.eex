@@ -1,0 +1,3 @@
+<%= for time_entry <- @time_entries do %>
+  <div>time entry <%= time_entry.id %>: <%= time_entry.started_at %> - <%= time_entry.stopped_at %></div>
+<% end %>
