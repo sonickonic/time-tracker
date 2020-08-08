@@ -1,0 +1,51 @@
+.time-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  color: var(--font-color);
+  background-color: white;
+  padding: 1.67rem 2.67rem;
+  width: 1000px;
+  height: 90px;
+  border-radius: 2px;
+
+  &__title {
+    color: var(--light-font-color);
+    text-transform: uppercase;
+    line-height: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  &__clint-name,
+  &__task-name,
+  &__project-name {
+    font-size: 1.3rem;
+    line-height: 1.67rem;
+    overflow: hidden;
+  }
+
+  &__clock {
+    align-self: center;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    font-size: 2rem;
+  }
+
+  &__time-container {
+    display: flex;
+  }
+
+  &__task-container {
+    position: absolute;
+    left: 400px;
+  }
+
+  &__task-container,
+  &__project-container {
+    max-width: 300px;
+    max-height: 50px;
+  }
+}
