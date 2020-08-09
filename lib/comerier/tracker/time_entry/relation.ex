@@ -22,6 +22,7 @@ defmodule Comerier.Tracker.TimeEntry.Relation do
       :seconds,
       :started_at,
       :stopped_at,
+      :project,
       :inserted_at,
       :updated_at
     ]
