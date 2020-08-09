@@ -63,7 +63,8 @@ CREATE TABLE public.projects (
     billable boolean DEFAULT false,
     notes character varying(255),
     inserted_at timestamp(0) without time zone NOT NULL,
-    updated_at timestamp(0) without time zone NOT NULL
+    updated_at timestamp(0) without time zone NOT NULL,
+    client_id bigint NOT NULL
 );
 
 
@@ -185,6 +186,14 @@ ALTER TABLE ONLY public.time_entries
 
 
 --
+-- Name: projects projects_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.projects
+    ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.clients(id);
+
+
+--
 -- Name: time_entries time_entries_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -200,3 +209,4 @@ INSERT INTO public."schema_migrations" (version) VALUES (20200806215245);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809173801);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809175019);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809211010);
+INSERT INTO public."schema_migrations" (version) VALUES (20200809212657);
