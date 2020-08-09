@@ -7,7 +7,7 @@ const Timesheet = ({ timeEntries }) => {
   return (
     <>
       {timeEntries.map((timeEntry) => (
-        <TimeEntry timeEntry={timeEntry} />
+        <TimeEntry key={timeEntry.id} timeEntry={timeEntry} />
       ))}
     </>
   );
