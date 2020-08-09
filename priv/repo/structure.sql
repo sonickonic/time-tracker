@@ -98,6 +98,38 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: tasks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tasks (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    project_id bigint NOT NULL,
+    inserted_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+--
+-- Name: tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tasks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tasks_id_seq OWNED BY public.tasks.id;
+
+
+--
 -- Name: time_entries; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -147,6 +179,13 @@ ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.pro
 
 
 --
+-- Name: tasks id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_id_seq'::regclass);
+
+
+--
 -- Name: time_entries id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -178,6 +217,14 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: tasks tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tasks
+    ADD CONSTRAINT tasks_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: time_entries time_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -191,6 +238,14 @@ ALTER TABLE ONLY public.time_entries
 
 ALTER TABLE ONLY public.projects
     ADD CONSTRAINT projects_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.clients(id);
+
+
+--
+-- Name: tasks tasks_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tasks
+    ADD CONSTRAINT tasks_project_id_fkey FOREIGN KEY (project_id) REFERENCES public.projects(id);
 
 
 --
@@ -210,3 +265,4 @@ INSERT INTO public."schema_migrations" (version) VALUES (20200809173801);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809175019);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809211010);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809212657);
+INSERT INTO public."schema_migrations" (version) VALUES (20200809232057);
