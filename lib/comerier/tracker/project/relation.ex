@@ -2,11 +2,15 @@ defmodule Comerier.Tracker.Project.Relation do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Comerier.Tracker.Client
+
   schema "projects" do
     field :name, :string
     field :description, :string
     field :billable, :boolean
     field :notes, :string
+
+    belongs_to :client, Client.Relation
 
     timestamps()
   end
@@ -18,6 +22,7 @@ defmodule Comerier.Tracker.Project.Relation do
       :description,
       :billable,
       :notes,
+      :client,
       :inserted_at,
       :updated_at
     ]
@@ -25,7 +30,7 @@ defmodule Comerier.Tracker.Project.Relation do
 
   def changeset(project, attrs) do
     project
-    |> cast(attrs, [:name, :description, :billable, :notes])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :client_id, :description, :billable, :notes])
+    |> validate_required([:name, :client_id])
   end
 end

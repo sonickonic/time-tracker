@@ -6,7 +6,7 @@ defmodule Comerier.Tracker.TimeEntry.Repository do
 
   def list do
     TimeEntry.Relation
-    |> preload([:project])
+    |> preload([project: :client])
     |> Repo.all()
   end
 
