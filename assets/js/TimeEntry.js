@@ -3,11 +3,11 @@ import StopWatch from "./StopWatch";
 
 import "../css/button.scss";
 import "../css/time-entry.scss";
-import "../css/base.scss"
+import "../css/base.scss";
 
 import Edit from "../images/edit.svg";
 
-const TimeEntry = () => {
+const TimeEntry = ({ timeEntry }) => {
   return (
     <div>
       <div className="time-entry">
@@ -21,7 +21,7 @@ const TimeEntry = () => {
           <span className="time-entry__task-name">Programming</span>
         </div>
         <div className="time-entry__time-container">
-          <StopWatch />
+          <StopWatch timeEntry={timeEntry} />
           <button className="btn btn-start">start</button>
           <button className="btn--edit" aria-label="edit">
             <Edit />
