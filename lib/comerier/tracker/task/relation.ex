@@ -12,6 +12,16 @@ defmodule Comerier.Tracker.Task.Relation do
     timestamps()
   end
 
+  def serializable_fields do
+    [
+      :id,
+      :name,
+      :project,
+      :inserted_at,
+      :updated_at
+    ]
+  end
+
   def changeset(task, attrs) do
     task
     |> cast(attrs, [:name, :project_id])
