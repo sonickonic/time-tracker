@@ -2,7 +2,7 @@ defmodule Comerier.Tracker.TimeEntry.Relation do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Comerier.Tracker.Project
+  alias Comerier.Tracker.Task
 
   schema "time_entries" do
     field :notes, :string
@@ -10,7 +10,7 @@ defmodule Comerier.Tracker.TimeEntry.Relation do
     field :started_at, :utc_datetime
     field :stopped_at, :utc_datetime
 
-    belongs_to :project, Project.Relation
+    belongs_to :task, Task.Relation
 
     timestamps()
   end
@@ -31,7 +31,7 @@ defmodule Comerier.Tracker.TimeEntry.Relation do
   @doc false
   def changeset(time_entry, attrs) do
     time_entry
-    |> cast(attrs, [:started_at, :stopped_at, :project_id, :seconds, :notes])
-    |> validate_required([:started_at, :project_id])
+    |> cast(attrs, [:started_at, :stopped_at, :task_id, :seconds, :notes])
+    |> validate_required([:started_at, :task_id])
   end
 end

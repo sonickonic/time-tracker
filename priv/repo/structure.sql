@@ -141,7 +141,7 @@ CREATE TABLE public.time_entries (
     notes character varying(255),
     inserted_at timestamp(0) without time zone NOT NULL,
     updated_at timestamp(0) without time zone NOT NULL,
-    project_id bigint NOT NULL
+    task_id bigint NOT NULL
 );
 
 
@@ -249,11 +249,11 @@ ALTER TABLE ONLY public.tasks
 
 
 --
--- Name: time_entries time_entries_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: time_entries time_entries_task_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.time_entries
-    ADD CONSTRAINT time_entries_project_id_fkey FOREIGN KEY (project_id) REFERENCES public.projects(id);
+    ADD CONSTRAINT time_entries_task_id_fkey FOREIGN KEY (task_id) REFERENCES public.tasks(id);
 
 
 --
@@ -266,3 +266,4 @@ INSERT INTO public."schema_migrations" (version) VALUES (20200809175019);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809211010);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809212657);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809232057);
+INSERT INTO public."schema_migrations" (version) VALUES (20200809233856);
