@@ -1,13 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import StopWatch from "./StopWatch";
 
 import "../css/button.scss";
 import "../css/time-entry.scss";
-import "../css/base.scss"
+import "../css/base.scss";
 
 import Edit from "../images/edit.svg";
 
-const TimeEntry = () => {
+const TimeEntry = ({ timeEntry }) => {
   return (
     <div>
       <div className="time-entry">
@@ -21,7 +23,7 @@ const TimeEntry = () => {
           <span className="time-entry__task-name">Programming</span>
         </div>
         <div className="time-entry__time-container">
-          <StopWatch />
+          <StopWatch timeEntry={timeEntry} />
           <button className="btn btn-start">start</button>
           <button className="btn--edit" aria-label="edit">
             <Edit />
@@ -30,6 +32,17 @@ const TimeEntry = () => {
       </div>
     </div>
   );
+};
+
+TimeEntry.propTypes = {
+  timeEntry: PropTypes.shape({
+    id: PropTypes.number,
+    started_at: PropTypes.string,
+    stopped_at: PropTypes.string,
+    seconds: PropTypes.number,
+    inserted_at: PropTypes.string,
+    updated_at: PropTypes.string,
+  }).isRequired,
 };
 
 export default TimeEntry;

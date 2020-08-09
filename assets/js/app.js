@@ -1,5 +1,5 @@
 import "phoenix_html";
 import { define } from "remount";
-import TimeEntry from "./TimeEntry"
+import Timesheet from "./Timesheet"
 
-define({ 'time-entry': TimeEntry })
+define({ 'comerier-timesheet': Timesheet })

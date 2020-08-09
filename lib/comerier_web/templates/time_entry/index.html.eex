@@ -1,1 +1,1 @@
-<time-entry />
+<comerier-timesheet props-json='{ "timeEntries": <%= time_entries_json() %> }'/>
