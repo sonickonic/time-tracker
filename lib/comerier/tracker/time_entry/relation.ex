@@ -11,6 +11,18 @@ defmodule Comerier.Tracker.TimeEntry.Relation do
     timestamps()
   end
 
+  def serializable_fields do
+    [
+      :id,
+      :notes,
+      :seconds,
+      :started_at,
+      :stopped_at,
+      :inserted_at,
+      :updated_at
+    ]
+  end
+
   @doc false
   def changeset(time_entry, attrs) do
     time_entry
