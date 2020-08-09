@@ -9,6 +9,16 @@ defmodule Comerier.Tracker.Client.Relation do
     timestamps()
   end
 
+  def serializable_fields do
+    [
+      :id,
+      :name,
+      :billing_email,
+      :inserted_at,
+      :updated_at
+    ]
+  end
+
   def changeset(client, attrs) do
     client
     |> cast(attrs, [:name, :billing_email])

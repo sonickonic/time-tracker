@@ -22,6 +22,7 @@ defmodule Comerier.Tracker.Project.Relation do
       :description,
       :billable,
       :notes,
+      :client,
       :inserted_at,
       :updated_at
     ]
