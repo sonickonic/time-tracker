@@ -75,7 +75,8 @@ CREATE TABLE public.time_entries (
     seconds integer,
     notes character varying(255),
     inserted_at timestamp(0) without time zone NOT NULL,
-    updated_at timestamp(0) without time zone NOT NULL
+    updated_at timestamp(0) without time zone NOT NULL,
+    project_id bigint NOT NULL
 );
 
 
@@ -137,8 +138,17 @@ ALTER TABLE ONLY public.time_entries
 
 
 --
+-- Name: time_entries time_entries_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.time_entries
+    ADD CONSTRAINT time_entries_project_id_fkey FOREIGN KEY (project_id) REFERENCES public.projects(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 INSERT INTO public."schema_migrations" (version) VALUES (20200806215245);
 INSERT INTO public."schema_migrations" (version) VALUES (20200809173801);
+INSERT INTO public."schema_migrations" (version) VALUES (20200809175019);
