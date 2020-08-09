@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import StopWatch from "./StopWatch";
 
 import "../css/button.scss";
@@ -30,6 +32,17 @@ const TimeEntry = ({ timeEntry }) => {
       </div>
     </div>
   );
+};
+
+TimeEntry.propTypes = {
+  timeEntry: PropTypes.shape({
+    id: PropTypes.number,
+    started_at: PropTypes.string,
+    stopped_at: PropTypes.string,
+    seconds: PropTypes.number,
+    inserted_at: PropTypes.string,
+    updated_at: PropTypes.string,
+  }).isRequired,
 };
 
 export default TimeEntry;
