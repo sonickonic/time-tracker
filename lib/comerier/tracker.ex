@@ -6,6 +6,7 @@ defmodule Comerier.Tracker do
   alias Comerier.Tracker.TimeEntry
   alias Comerier.Tracker.Project
   alias Comerier.Tracker.Client
+  alias Comerier.Tracker.Task
 
   defdelegate list_time_entries(), to: TimeEntry.Repository, as: :list
   defdelegate create_time_entry(attrs), to: TimeEntry.Repository, as: :create
@@ -15,4 +16,7 @@ defmodule Comerier.Tracker do
 
   defdelegate list_clients(), to: Client.Repository, as: :list
   defdelegate create_client(attrs), to: Client.Repository, as: :create
+
+  defdelegate list_tasks(), to: Task.Repository, as: :list
+  defdelegate create_task(attrs), to: Task.Repository, as: :create
 end
