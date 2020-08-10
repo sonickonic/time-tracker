@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import StopWatch from "./StopWatch";
+import Stopwatch from "./Stopwatch";
 
 import "../css/button.scss";
 import "../css/time-entry.scss";
@@ -23,7 +23,7 @@ const TimeEntry = ({ timeEntry }) => {
           <span className="time-entry__task-name">Programming</span>
         </div>
         <div className="time-entry__time-container">
-          <StopWatch timeEntry={timeEntry} />
+          <Stopwatch timeEntry={timeEntry} />
           <button className="btn btn-start">start</button>
           <button className="btn--edit" aria-label="edit">
             <Edit />
