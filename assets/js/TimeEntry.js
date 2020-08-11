@@ -15,7 +15,9 @@ const TimeEntry = ({ timeEntry }) => {
 
   return (
     <div>
-      <div className="time-entry">
+      <div
+        className={active ? "time-entry time-entry--selected" : "time-entry"}
+      >
         <div className="time-entry__project-container">
           <h3 className="time-entry__title">project</h3>
           <span className="time-entry__clint-name">MeUndies </span>
