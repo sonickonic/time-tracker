@@ -1,15 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import TimeEntry from "./TimeEntry";
+import "../css/timesheet.scss";
 
 const Timesheet = ({ timeEntries }) => {
   return (
-    <>
-      {timeEntries.map((timeEntry) => (
-        <TimeEntry key={timeEntry.id} timeEntry={timeEntry} />
-      ))}
-    </>
+    <div className="timesheet">
+      <div className="timesheet__container">
+        <div className="time-entry__container">
+          {timeEntries.map((timeEntry) => (
+            <TimeEntry key={timeEntry.id} timeEntry={timeEntry} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
