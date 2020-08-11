@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Stopwatch from "./Stopwatch";
+import Button from "./Button";
 
 import "../css/button.scss";
 import "../css/time-entry.scss";
@@ -10,6 +11,8 @@ import "../css/base.scss";
 import Edit from "../images/edit.svg";
 
 const TimeEntry = ({ timeEntry }) => {
+  const active = timeEntry.stoppedAt === null;
+
   return (
     <div>
       <div className="time-entry">
@@ -24,7 +27,7 @@ const TimeEntry = ({ timeEntry }) => {
         </div>
         <div className="time-entry__time-container">
           <Stopwatch timeEntry={timeEntry} />
-          <button className="btn btn-start">start</button>
+          <Button label={active ? "stop" : "start"} active={active} />
           <button className="btn--edit" aria-label="edit">
             <Edit />
           </button>

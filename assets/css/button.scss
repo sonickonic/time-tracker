@@ -10,15 +10,36 @@
   font-size: 1.3rem;
   line-height: 1.3rem;
   text-transform: uppercase;
+  transition: 200ms ease-out;
+  display: inline-block;
 
   cursor: pointer;
+
+  &:hover {
+    opacity: 70%;
+  }
+
+  &--active {
+    color: white;
+    background-color: var(--main-color);
+    padding: 1rem 2.292rem;
+  }
+
+  &--active:hover {
+    background-color: var(--main-color);
+    opacity: 70%;
+  }
 
   &--edit {
     border: none;
     background-color: transparent;
     align-self: flex-end;
     height: 21px;
-    
+
     cursor: pointer;
   }
+}
+
+svg:hover path {
+  fill: var(--main-color);
 }
