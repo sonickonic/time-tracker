@@ -11,6 +11,12 @@ defmodule Comerier.Tracker.TimeEntry.Repository do
   end
 
   def create(attrs \\ %{}) do
+    with {:ok, reply} <- do_create(attrs) do
+      {:ok, Repo.preload(reply, task: [project: :client])}
+    end
+  end
+
+  defp do_create(attrs) do
     %TimeEntry.Relation{}
     |> TimeEntry.Relation.changeset(attrs)
     |> Repo.insert()
