@@ -11,6 +11,7 @@ const Timesheet = ({ timeEntries }) => {
           {timeEntries.map((timeEntry) => (
             <TimeEntry key={timeEntry.id} timeEntry={timeEntry} />
           ))}
+          <span className="timesheet__total-hours">Total hours.</span>
         </div>
       </div>
     </div>
