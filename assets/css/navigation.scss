@@ -1,0 +1,20 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  width: 100rem;
+  height: 7rem;
+  margin: 0 auto;
+
+  &__list {
+    list-style: none;
+    margin-left: 7rem;
+  }
+
+  &__list-item {
+    margin-top: 2px;
+    font-size: 18px;
+    line-height: 21px;
+
+    cursor: pointer;
+  }
+}
