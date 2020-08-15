@@ -1,0 +1,15 @@
+.header {
+  width: 1000px;
+  min-height: 30vh;
+  padding-bottom: 64px;
+  padding-top: 5rem;
+
+  &__title {
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 42px;
+    margin: 0 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
