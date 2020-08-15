@@ -24,6 +24,8 @@ defmodule ComerierWeb.ConnCase do
       import Phoenix.ConnTest
       import ComerierWeb.ConnCase
 
+      import Comerier.Factory
+
       alias ComerierWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
