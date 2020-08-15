@@ -11,12 +11,19 @@ defmodule ComerierWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Casex.CamelCaseDecoderPlug
   end
 
   scope "/", ComerierWeb do
     pipe_through :browser
 
     get "/", TimeEntryController, :index
+  end
+
+  scope path: "/api/v1", as: :api_v1, alias: ComerierWeb.Api.V1 do
+    pipe_through :api
+
+    resources "/time_entries", TimeEntryController, only: [:create]
   end
 
   # Other scopes may use custom stacks.
