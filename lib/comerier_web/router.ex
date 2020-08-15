@@ -11,6 +11,7 @@ defmodule ComerierWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Casex.CamelCaseDecoderPlug
   end
 
   scope "/", ComerierWeb do
